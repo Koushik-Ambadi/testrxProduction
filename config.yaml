@@ -1,0 +1,79 @@
+schema_version: "1.0"
+config_id: testrx-manual-h384-bge-minilm-v1
+index_release_id: testrx-manual-9cc50b19-h384-bge-v1
+integrity:
+  lock_file: release-lock.json
+  expected_lock_sha256: DB48CEB7240A4E4942EB975E6C5597A77D214D513D0701239FBBE6C83CE3BE52
+source:
+  document_id: testrx_user_manual
+  sha256: 9CC50B1955AB92884CB0C1AA1A1B6ED437BDBD419962A2FDC6818B4D17073B99
+parser:
+  implementation: native_pdf
+  version: 0.1.0
+  document_schema_version: "1.0"
+chunking:
+  strategy: hierarchical_max_tokens
+  max_tokens: 384
+  tokenizer: testrx_regex_tokenizer
+  tokenizer_version: "1.0"
+models:
+  bi_encoder:
+    id: dense_bge_small_en_v15
+    algorithm: sentence_transformer
+    repository: BAAI/bge-small-en-v1.5
+    revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+    path: encoders/artifacts/dense_bge_small_en_v15
+    dimension: 384
+    batch_size: 32
+    query_prefix: ""
+    document_prefix: ""
+    normalize_embeddings: true
+  cross_encoder:
+    id: reranker_minilm_l6
+    algorithm: sentence_transformer_cross_encoder
+    repository: cross-encoder/ms-marco-MiniLM-L-6-v2
+    revision: 233902d25c440f23af6f7d6e94d2946bac0bee0a
+    path: rerankers/artifacts/reranker_minilm_l6
+    batch_size: 32
+retrieval:
+  algorithm: cosine_similarity_exact
+  distance: cosine
+  candidate_k: 10
+  top_k: 5
+  exact_search: true
+vector_store:
+  collection: testrx_manual_9cc50b19_h384_bge_v1
+  contract_version: "1.0"
+  payload_schema_version: "1.0"
+  payload_fields: [record_type, chunk_id, text, metadata]
+runtime:
+  application_packages:
+    qdrant-client: "1.19.1"
+prompt:
+  system: >-
+    Answer the user's question using only the supplied TESTRX manual evidence.
+    If the evidence does not support an answer, say so. Cite supporting pages
+    using [p. N] notation.
+  template: |-
+    Question:
+    {query}
+
+    TESTRX manual evidence:
+    {context}
+
+    Provide a concise answer grounded in the evidence and include page citations.
+freeze:
+  status: frozen
+  evaluation:
+    evidence_source: testrx-retriever/configs/retrieval/production.md
+    accepted_date: "2026-09-17"
+    dataset: TESTRX golden set, 196 questions
+    strict_recall_at_5: 0.949
+    mean_returned_context_tokens_at_5: 715
+    mean_reciprocal_rank: 0.883
+  rationale: >-
+    Selected as the quality/context/operational frontier. Hierarchy-384 with
+    BGE and MiniLM retained strong complete-evidence retrieval at about half
+    the context of the 300/30 token-window control. Candidate K=10 outperformed
+    larger candidate pools after reranking; K=5 was the context/completeness
+    knee.

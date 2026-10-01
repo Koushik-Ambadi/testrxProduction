@@ -1,0 +1,169 @@
+{
+  "application_packages": {
+    "qdrant-client": "1.19.1"
+  },
+  "chunking": {
+    "chunk_count": 95,
+    "code_files": {
+      "retrieval/chunking.py": "FA9102A0C7B05A76EF959B78A2D7CE747B111464422814058C8D0E00EE1ACAB0",
+      "retrieval/hierarchical_chunking.py": "76DFB9D9E869756DD54AB0D930C1944BCCE7534F7BDFC5D00C38A2F04A845EFD",
+      "retrieval/tokenization.py": "625EC50C38B3DCCE3BC1829F0986CB211BE3EDDCF43FA00C8D01B10F6BB57AD3"
+    },
+    "config": {
+      "max_tokens": 384,
+      "strategy": "hierarchical_max_tokens",
+      "tokenizer": "testrx_regex_tokenizer",
+      "tokenizer_version": "1.0"
+    },
+    "document_vectors_sha256": "2CAEDFE79B2BA6D3F7773E5D8A5BD1A5244BB1BC44B41C3C676C73597A9C1CF7",
+    "ordered_chunks_sha256": "0E0894045D960F0C01750CBB78AC9A5BFFAC4638E9DB2E9088FB00159555DFFC"
+  },
+  "config_id": "testrx-manual-h384-bge-minilm-v1",
+  "contract": {
+    "application_packages": {
+      "qdrant-client": "1.19.1"
+    },
+    "chunking": {
+      "max_tokens": 384,
+      "strategy": "hierarchical_max_tokens",
+      "tokenizer": "testrx_regex_tokenizer",
+      "tokenizer_version": "1.0"
+    },
+    "config_id": "testrx-manual-h384-bge-minilm-v1",
+    "contract_version": "1.0",
+    "dimension": 384,
+    "distance": "cosine",
+    "encoder_id": "dense_bge_small_en_v15",
+    "encoder_parameters": {
+      "batch_size": 32,
+      "document_prefix": "",
+      "normalize_embeddings": true,
+      "query_prefix": ""
+    },
+    "encoder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "index_release_id": "testrx-manual-9cc50b19-h384-bge-v1",
+    "payload_fields": [
+      "record_type",
+      "chunk_id",
+      "text",
+      "metadata"
+    ],
+    "payload_schema_version": "1.0",
+    "record_type": "contract",
+    "reranker_batch_size": 32,
+    "reranker_id": "reranker_minilm_l6",
+    "reranker_revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a",
+    "retrieval": {
+      "algorithm": "cosine_similarity_exact",
+      "candidate_k": 10,
+      "distance": "cosine",
+      "exact_search": true,
+      "top_k": 5
+    },
+    "source_sha256": "9CC50B1955AB92884CB0C1AA1A1B6ED437BDBD419962A2FDC6818B4D17073B99"
+  },
+  "development_config_sha256": "4A4FA4E7C7DC026690DE368130AE340C8E99048D0FC81DDAFAF8D0B250DFA697",
+  "development_evaluation_config_sha256": "4B31DB6B2DDE0C48AD9478C4D25C350B53FAD01E77621A43F490E14A72E69C74",
+  "index_release_id": "testrx-manual-9cc50b19-h384-bge-v1",
+  "models": {
+    "bi_encoder": {
+      "artifact": {
+        "file_count": 12,
+        "files": {
+          ".gitattributes": "11AD7EFA24975EE4B0C3C3A38ED18737F0658A5F75A0A96787B576A78A023361",
+          "1_Pooling/config.json": "D1CAF60C96F5FBA2157C0C26B76D80818FAD6CF0B8EB5E73EC372FF9818EBA5C",
+          "README.md": "DDB964361A55C6E5DFCA6361615854B260C9C960205D04C7520151AAA1D75837",
+          "config.json": "094F8E891B932F2000C92CFC663BAC4C62069F5D8AF5B5278C4306AEF3084750",
+          "config_sentence_transformers.json": "940D5F50DB195FA6E5E6A4F122C095F77880DE259D74B14A65779ED48BDD7C56",
+          "model.safetensors": "3C9F31665447C8911517620762200D2245A2518D6E7208ACC78CD9DB317E21AD",
+          "modules.json": "84E40C8E006C9B1D6C122E02CBA9B02458120B5FB0C87B746C41E0207CF642CF",
+          "sentence_bert_config.json": "84E39FDA68CCBFF05BFA723AE9C0E70E23E2EC373B76E0F8C6E71AF72A693CBF",
+          "special_tokens_map.json": "B6D346BE366A7D1D48332DBC9FDF3BF8960B5D879522B7799DDBA59E76237EE3",
+          "tokenizer.json": "D241A60D5E8F04CC1B2B3E9EF7A4921B27BF526D9F6050AB90F9267A1F9E5C66",
+          "tokenizer_config.json": "9261E7D79B44C8195C1CADA2B453E55B00AEB81E907A6664974B4D7776172AB3",
+          "vocab.txt": "07ECED375CEC144D27C900241F3E339478DEC958F92FDDBC551F295C992038A3"
+        },
+        "sha256": "5A7B80C0BF9259857BD7EBAAD4CA5945BF6CFDB4D35316623658EA557DE141AF"
+      },
+      "dimension": 384,
+      "id": "dense_bge_small_en_v15",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
+    },
+    "cross_encoder": {
+      "artifact": {
+        "file_count": 6,
+        "files": {
+          "config.json": "380E02C93F431831BE65D99A4E7E5F67C133985BF2E77D9D4EBA46847190BACC",
+          "model.safetensors": "821D1AA69520101D6E0737F78A042AE25B19E5CB9160701909D10434F4AEB0AE",
+          "special_tokens_map.json": "3C3507F36DFF57BCE437223DB3B3081D1E2B52EC3E56EE55438193ECB2C94DD6",
+          "tokenizer.json": "D241A60D5E8F04CC1B2B3E9EF7A4921B27BF526D9F6050AB90F9267A1F9E5C66",
+          "tokenizer_config.json": "A5C2E5A7B1A29A0702CD28C08A399B5ECC110C263009D17F7E3B415F25905FD8",
+          "vocab.txt": "07ECED375CEC144D27C900241F3E339478DEC958F92FDDBC551F295C992038A3"
+        },
+        "sha256": "8FBEC535A1E50D673B121F99DFF539F93CC047819A3A58BE71225B63B9254926"
+      },
+      "dimension": null,
+      "id": "reranker_minilm_l6",
+      "revision": "233902d25c440f23af6f7d6e94d2946bac0bee0a"
+    }
+  },
+  "parser": {
+    "canonical_document_sha256": "71421120C38EED6B8BFF0D147DB01D29D58916761D2A68F4D1712D94310F789B",
+    "code_files": {
+      "__init__.py": "70A2EA78254B4A7F55B2E39084E977F4478D94F44129C009B48BC861CCE9D200",
+      "configuration.py": "6C87DB32E66762974D232C06A34A324AA2655C732454FA51794D282E7B09A374",
+      "parsing/__init__.py": "0E0999BB8327A9BD479901AC9DE64C3D01C125D59A46D3AA3B8E9CAAF8D66FC2",
+      "parsing/domain.py": "9A234BB33D0E101E508F779AB152B5318C63F84FF7113563BC8EB5A89E2DC672",
+      "parsing/figures.py": "84E8A279F08026F809225C006B7991BEC6C749597E68503A9E489419C932A113",
+      "parsing/inspection.py": "44B6D2E378E2F6E83F9CC754966C344437DDC68E257361F5D3C5B89D92E4D660",
+      "parsing/normalize.py": "8140E0E0E950D01BF3F56668C8D072E0BAC181A93FD1E1BA1830634C96428513",
+      "parsing/parser.py": "87A80E559D43FCB77EC1E3DA3837754DD9573DF4B16083001322B1476047944F",
+      "parsing/structure.py": "142A8E870FC00B59AD93EF04C729D60A453739134A3CAF3A711039DA4AD10A34",
+      "parsing/tables.py": "7592D1DCDCA620B77405B413EAFA3D920A7148570FB16A5A4CC39BE8DFDC679F",
+      "parsing/validation.py": "4BC3661D31B9DF735ACFB866E43A5EE4C047E7A21A8A293379292CDD55C6FBEE"
+    },
+    "implementation": {
+      "document_schema_version": "1.0",
+      "implementation": "native_pdf",
+      "version": "0.1.0"
+    }
+  },
+  "production_config_sha256": "A4DEE173DA502459176A1705EE59C04CB0072068D97E68D1C9AB0F8C975C4550",
+  "production_runtime_code_files": {
+    "Dockerfile": "124DF2775EB0EA0C5F73D6D5AECD19A17A46DB6BE49399B6C0D9825A72291B0A",
+    "pyproject.toml": "E88270A6FF2469FF7460964F14A103CB1F348BBBF2CDD42798F3A81CB6432B11",
+    "requirements.txt": "69E29C7159D46CAF0BC021851E836AAEF1BB88E3BD923BCBA7E717F29472530B",
+    "src/testrx_prod/__init__.py": "2196BDADBDBB4BC92AC2B7419789CCF4DEF57FE623190871CA8FC4E8F475A400",
+    "src/testrx_prod/application.py": "1862212AAC478DE75B8A1B3C53AA27A5466C2B87A064FBC088A62A296EA021E7",
+    "src/testrx_prod/build_index.py": "060418DFBECED12C2DC94AEFCE67F4A02A473985E9DEB6FF59F895D19C22E336",
+    "src/testrx_prod/config.py": "47C73A497D138E53DE14B91183C79CE73221D05D15B72FDB0F22B0042F8D997F",
+    "src/testrx_prod/integrity.py": "27C8FA32F10EA5598F831C0B9666FF9A2AF9809D7A59756C915166E22F68B938",
+    "src/testrx_prod/store.py": "387A6D40AF13A2673581B04A932AD53A52D69A6782F01BD3875F0B079A2DA39E"
+  },
+  "runtime": {
+    "packages": {
+      "Pillow": "12.3.0",
+      "PyYAML": "6.0.3",
+      "huggingface-hub": "1.31.0",
+      "numpy": "2.5.3",
+      "pdfminer.six": "20260107",
+      "pdfplumber": "0.11.10",
+      "pypdf": "6.18.1",
+      "pypdfium2": "5.13.0",
+      "regex": "2026.9.10",
+      "safetensors": "0.8.0",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "sentence-transformers": "5.7.0",
+      "tokenizers": "0.23.2",
+      "torch": "2.14.0",
+      "transformers": "5.17.0"
+    },
+    "python_minor": "3.13"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "path": "TESTRX_User_Manual.pdf",
+    "sha256": "9CC50B1955AB92884CB0C1AA1A1B6ED437BDBD419962A2FDC6818B4D17073B99"
+  }
+}
